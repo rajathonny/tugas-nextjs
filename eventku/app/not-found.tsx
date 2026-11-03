@@ -1,5 +1,4 @@
 import Link from "next/link";
-import link from "next/link";
 
 export default function NotFound() {
   return (

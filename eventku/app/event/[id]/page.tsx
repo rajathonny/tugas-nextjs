@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { events, rupiah, type Event } from "@/data/event";
+import { events, rupiah } from "@/data/event";
 import FormPesan from "@/components/FormPesan";
 import TombolFavorit from "@/components/TombolFavorit";
 
@@ -22,7 +22,7 @@ export default async function Detail({ params }: PageProps<"/event/[id]">) {
       <p className="text-slate-600">
         Sisa {sisa} dari {event.kuota} tiket
       </p>
-      <TombolFavorit id={event.id} />
+      <TombolFavorit key={event.id} id={event.id} />
       <FormPesan event={event} />
     </article>
   );
