@@ -40,3 +40,5 @@ export default function TombolFavorit({ id }: { id: number }) {
     </button>
   );
 }
+
+//ha ha hahahahaha
