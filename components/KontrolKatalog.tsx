@@ -1,0 +1,39 @@
+import Form from "next/form";
+import type { Saringan } from "@/data/saring";
+
+export default function KontrolKatalog({ s, daftarKategori }: { s: Saringan; daftarKategori: string[] }) {
+  return (
+    <Form action="/event" className="mb-4 flex flex-wrap items-center gap-3">
+      <input
+        name="cari"
+        defaultValue={s.cari}
+        placeholder="Cari event..."
+        className="rounded border bg-white px-3 py-2"
+      />
+      <select name="kategori" defaultValue={s.kategori} className="rounded border bg-white px-3 py-2">
+        {daftarKategori.map((k) => (
+          <option key={k}>{k}</option>
+        ))}
+      </select>
+      <select name="urut" defaultValue={s.urut} className="rounded border bg-white px-3 py-2">
+        <option value="tanggal">Tanggal terdekat</option>
+        <option value="murah">Harga termurah</option>
+        <option value="mahal">Harga termahal</option>
+        <option value="nama">Nama A-Z</option>
+      </select>
+      <label className="flex items-center gap-2 text-sm">
+        <input type="checkbox" name="sisa" value="1" defaultChecked={s.sisa} />
+        Hanya yang masih ada tiket
+      </label>
+      <input
+        type="number"
+        name="max"
+        min={0}
+        defaultValue={s.max ?? ""}
+        placeholder="Harga maksimal"
+        className="w-48 rounded border bg-white px-3 py-2"
+      />
+      <button className="rounded bg-blue-600 px-4 py-2 text-white">Terapkan</button>
+    </Form>
+  );
+}
